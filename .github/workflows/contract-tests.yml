@@ -20,7 +20,7 @@ jobs:
 
       - name: Install slither
         run: |
-          pip3 install slither-analyzer
+          pip3 install slither-analyzer --user
           echo "check installed slither version....."
           pip3 show slither-analyzer
 
