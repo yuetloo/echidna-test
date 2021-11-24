@@ -42,5 +42,4 @@ jobs:
 
       - name: Run echina tests
         run: |
-          cd contracts/tests
-          echidna-test EchidnaTest.sol --config config.yml
+          echidna-test . --contract EchidnaTest
