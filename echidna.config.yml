@@ -1,1 +1,1 @@
-cryticArgs: "--solc-remaps @openzeppelin/contracts-upgradeable=/home/runner/work/echidna-test/echidna-test/node_modules/@openzeppelin/contracts-upgradeable"
+cryticArgs: ["--solc-remaps @openzeppelin/contracts-upgradeable=/home/runner/work/echidna-test/echidna-test/node_modules/@openzeppelin/contracts-upgradeable"]
