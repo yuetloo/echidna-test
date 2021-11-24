@@ -1,0 +1,42 @@
+name: Contracts Tests
+on:
+  push:
+    paths:
+      - 'contracts/**'
+      - '.github/workflows/contract-*.yml'
+
+jobs:
+  test-echidna:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+          architecture: 'x64'
+
+      - name: Install slither
+        run: |
+          pip3 install slither-analyzer
+          echo "check installed slither version....."
+          pip3 show slither-analyzer
+
+      - name: Install solc
+        env:
+          SOLC_VERSION: 0.8.4
+        run: |
+          pip install solc-select
+          solc-select install ${{ env.SOLC_VERSION }}
+          solc-select use ${{ env.SOLC_VERSION }}
+
+      - name: Install echidna
+        run: |
+          sudo wget -O /tmp/echidna-test.tar.gz https://github.com/crytic/echidna/releases/download/v1.5.1/echidna-test-v1.5.1-Ubuntu-18.04.tar.gz
+          sudo tar -xf /tmp/echidna-test.tar.gz -C /usr/bin
+          sudo chmod +x /usr/bin/echidna-test
+
+      - name: Run echina tests
+        run: |
+          echidna-test contracts/tests/EchidnaTest.sol
