@@ -1,1 +1,1 @@
-cryticArgs: "--solc-remaps IMPORT_PATH=node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/"
+solcArgs: "@openzeppelin/contracts-upgradeable=node_modules/@openzeppelin/contracts-upgradeable"

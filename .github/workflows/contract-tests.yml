@@ -39,7 +39,9 @@ jobs:
           sudo chmod +x /usr/bin/echidna-test
 
       - name: List openzeppeline files
-        run: ls -l node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol
+        run: |
+        ls -l node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol
+        pwd
 
       - name: Run echina tests
         run: |
