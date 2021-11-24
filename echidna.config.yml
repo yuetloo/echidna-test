@@ -8,4 +8,4 @@ coverage: false
 seqLen: 1
 #testLimit is the number of test sequences to run
 testLimit: 500000
-cryticArgs: []
+cryticArgs: ["--solc-remaps IMPORT_PATH=node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/"]
