@@ -12,7 +12,7 @@ maxGasprice: 0
 #testLimit is the number of test sequences to run
 testLimit: 50000
 #stopOnFail makes echidna terminate as soon as any property fails and has been shrunk
-stopOnFail: false
+stopOnFail: true
 #estimateGas makes echidna perform analysis of maximum gas costs for functions (experimental)
 estimateGas: false
 #seqLen defines how many transactions are in a test sequence
@@ -38,7 +38,7 @@ solcArgs: ""
 #solcLibs is solc libraries
 solcLibs: []
 #cryticArgs allows special args to crytic
-cryticArgs: []
+cryticArgs: ["--solc-remaps", "@openzeppelin=/home/runner/work/echidna-test/echidna-test/node_modules/@openzeppelin"]
 #quiet produces (much) less verbose output
 quiet: false
 #initialize the blockchain with some data
