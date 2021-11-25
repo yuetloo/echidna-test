@@ -51,6 +51,6 @@ jobs:
 
       - name: Run echina tests
         run: |
-          echo crypticArgs: \[\"--solc-remaps\", \"${{ env.SOLC_REMAP }}\"\] > remap.config.yml
+          echo cryticArgs: \[\"--solc-remaps\", \"${{ env.SOLC_REMAP }}\"\] > remap.config.yml
           cat remap.config.yml
           echidna-test contracts/tests/EchidnaTest.sol --contract EchidnaTest --config remap.config.yml
