@@ -54,4 +54,4 @@ jobs:
           echo cryticArgs: \[\"--solc-remaps\", \"${{ env.SOLC_REMAP }}\"\] > remap.config.yml
           cat remap.config.yml
           ln -s node_modules/@openzeppelin contracts/tests
-          echidna-test . --contract EchidnaTest
+          echidna-test . --contract EchidnaTest --config default-echidna.config.yml
