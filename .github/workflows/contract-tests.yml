@@ -51,7 +51,7 @@ jobs:
 
       - name: Run echidna account
         run: |
-          echidna-test . --contract EchidnaERC1820
+          echidna-test . --contract EchidnaERC1820 --config echidna.config.yml
 
       - name: Run echina tests
         run: |
