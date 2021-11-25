@@ -47,7 +47,7 @@ jobs:
 
       - name: Compile contract with solc
         run: |
-          solc -bin -o /tmp/solcoutput ${{ env.SOLC_REMAP }} contracts/tests/EchidnaTest.sol
+          solc --bin -o /tmp/solcoutput ${{ env.SOLC_REMAP }} contracts/tests/EchidnaTest.sol
 
       - name: Run echina tests
         run: |
