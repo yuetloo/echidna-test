@@ -49,9 +49,9 @@ jobs:
         run: |
           solc --bin -o /tmp/solcoutput ${{ env.SOLC_REMAP }} contracts/tests/EchidnaTest.sol
 
-      - name: Run echidna account
+      - name: Run echidna test simpile
         run: |
-          echidna-test . --contract EchidnaERC1820 --config echidna.config.yml
+          echidna-test contracts/tests/EchidnaERC1820.sol --contract EchidnaERC1820 --config echidna.config.yml
 
       - name: Run echina tests
         run: |
