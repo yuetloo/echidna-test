@@ -4,7 +4,7 @@ on:
     paths:
       - 'contracts/**'
       - '.github/workflows/contract-*.yml'
-      - 'echidna.config.yml'
+      - '*echidna.config.yml'
 
 jobs:
   test-echidna:
