@@ -7,8 +7,9 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 
 contract EchidnaTest is UUPSUpgradeable, Initializable {
-    function doOtherStuff() external pure returns (uint8) {
-        return 9;
+    function upgradeTo(address newImplementation) external override onlyProxy {
+        _authorizeUpgrade(newImplementation);
+        _upgradeToAndCallSecure(newImplementation, new bytes(0), false);
     }
 
     function echidna_test() external pure returns (bool) {
