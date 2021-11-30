@@ -51,7 +51,7 @@ jobs:
 
       - name: Generate echina config file
         run: |
-          echo cryticArgs: \[\"--solc-remaps\", \"${{ env.SOLC_REMAP }}\"\] >> config.yml
+          echo cryticArgs: \[\"--solc-remaps\", \"${{ env.SOLC_REMAP }}\"\] > remap.config.yml
           cat remap.config.yml
 
       - name: Run echidna test simpile
