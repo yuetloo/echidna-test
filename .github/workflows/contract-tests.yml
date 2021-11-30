@@ -49,12 +49,15 @@ jobs:
         run: |
           solc --bin -o /tmp/solcoutput ${{ env.SOLC_REMAP }} contracts/tests/EchidnaTest.sol
 
+      - name: Generate echina config file
+        run: |
+          echo cryticArgs: \[\"--solc-remaps\", \"${{ env.SOLC_REMAP }}\"\] >> config.yml
+          cat remap.config.yml
+
       - name: Run echidna test simpile
         run: |
-          echidna-test contracts/tests/EchidnaERC1820.sol --contract EchidnaERC1820 --config echidna.config.yml
+          echidna-test . --contract EchidnaERC1820
 
       - name: Run echina tests
         run: |
-          echo cryticArgs: \[\"--solc-remaps\", \"${{ env.SOLC_REMAP }}\"\] > remap.config.yml
-          cat remap.config.yml
-          echidna-test contracts/tests/EchidnaTest.sol --contract EchidnaTest --config default-echidna.config.yml
+          echidna-test . --contract EchidnaTest
