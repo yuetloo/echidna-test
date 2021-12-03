@@ -61,3 +61,7 @@ jobs:
       - name: Run echina tests
         run: |
           echidna-test . --contract EchidnaTest
+
+      - name: Run echina assert test
+        run: |
+          echidna-test . --contract EchidnaTestAssert
