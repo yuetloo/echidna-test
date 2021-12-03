@@ -36,7 +36,7 @@ jobs:
 
       - name: Install echidna
         run: |
-          sudo wget -O /tmp/echidna-test.tar.gz https://github.com/crytic/echidna/releases/download/v1.7.3/echidna-test-1.7.3-Ubuntu-18.04.tar.gz
+          sudo wget -O /tmp/echidna-test.tar.gz https://github.com/crytic/echidna/releases/download/v2.0.0-b2/echidna-test-2.0.0-b2-Ubuntu-18.04.tar.gz
           sudo tar -xf /tmp/echidna-test.tar.gz -C /usr/bin
           sudo chmod +x /usr/bin/echidna-test
 
@@ -54,14 +54,10 @@ jobs:
           echo cryticArgs: \[\"--solc-remaps\", \"${{ env.SOLC_REMAP }}\"\] > remap.config.yml
           cat remap.config.yml
 
-      - name: Run echidna test simpile
+      - name: Run echina assert test
         run: |
-          echidna-test . --contract EchidnaERC1820
+          echidna-test . --contract EchidnaTestAssert
 
       - name: Run echina tests
         run: |
           echidna-test . --contract EchidnaTest
-
-      - name: Run echina assert test
-        run: |
-          echidna-test . --contract EchidnaTestAssert
